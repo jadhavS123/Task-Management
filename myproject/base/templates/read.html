@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h2>📖  Tasks</h2>
+
+<h3>Search </h3>
+
+<form action="">
+    <input type="text" placeholder="Search" name="q" value="{{ search | default:'' }}">
+    <button type="submit">submit</button>
+</form>
+
+<ul class="entry-list" type="none">
+    {% for i in data %}
+        <li>
+            <span class="entry-name"> {{ i.name }}</span> 
+            <span class="entry-date"> {{ i.date }}</span>
+            <span class="entry-clas"> {{ i.clas }}</span>
+            <!-- <span class="entry-dept">📝 {{ i.dept }}</span>
+            <span class="entry-roll">📝 {{ i.roll }}</span>
+            <span class="entry-tel">📝 {{ i.tel }}</span> -->
+            <div class="entry-actions">
+                <a href="{% url 'update' i.id %}" class="edit-link">✏️ Edit</a>
+                <a href="{% url 'delete' i.id %}" class="delete-link" onclick="return confirmDelete()">🗑️ Delete</a>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+<script>
+    function confirmDelete() {
+        return confirm("⚠️ Are you sure you want to delete this data?");
+    }
+</script>
+{% endblock %}

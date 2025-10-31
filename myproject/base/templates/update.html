@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h2>🔧 Update Entry</h2>
+
+<form method="POST" onsubmit="return confirmUpdate()">
+    {% csrf_token %}
+    
+    <label>Task:</label><br>
+    <input type="text" name="name" value="{{ data.name }}" required> <br><br>
+
+    
+    <label> Description:</label><br>
+    <input type="date" name="date" value="{{ data.date}}" required> <br><br>
+
+    <label for="clas"> Status:</label>
+    <input type="text" name="clas" id="clas" value="{{ data.clas }}" required><br><br>
+
+    
+    <!-- <label for="dept"> Dept:</label>
+    <input type="text" name="dept" id="dept" value="{{ data.dept }}" required><br><br>
+    
+    <label for="roll"> Roll No:</label>
+    <input type="text" name="roll" id="roll" value="{{ data.roll }}"  required><br><br>
+
+    <label for="tel">📱 Mobile No:</label>
+    <input type="tel" name="tel" id="tel" value="{{ data.tel }}" required><br><br> -->
+    
+
+    <button type="submit">✅ Update</button>
+</form>
+<a href="{% url 'read' %}" class="back-btn">🔙 Go Back</a>
+
+<script>
+    function confirmUpdate() {
+        return confirm("🔄 Are you sure you want to update this entry?");
+    }
+</script>
+{% endblock %}

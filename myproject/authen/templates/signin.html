@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="login-container">
+  <h2 class="heading">🔐👋 Welcome  ! Please Login Again 🚪✨</h2>
+
+  <form method="POST" class="login-form">
+    {% csrf_token %}
+
+    <input type="text" name="username" placeholder="👤 Username" required> <br><br>
+    <input type="password" name="password" placeholder="🔒 Password" required> <br>
+    <br><br>
+
+    <button type="submit">🚀 Login Now</button>
+  </form>
+
+  <p id="login-message">🌟 Tip: Your credentials are safe with us! 🔐💖</p>
+</div>
+
+<!-- JavaScript: Fade out tip after 5 seconds -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const msg = document.getElementById('login-message');
+    if (msg) {
+      setTimeout(() => {
+        msg.style.transition = 'opacity 1s ease';
+        msg.style.opacity = 0;
+      }, 5000);
+    }
+  });
+</script>
+
+{% endblock %}

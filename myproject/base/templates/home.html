@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h2>📝 Enter the Task </h2>
+
+<form method="POST" id="createForm">
+    {% csrf_token %}
+    
+    <label for="name"> Task:</label>
+    <input type="text" name="name" id="name" placeholder="Enter  Task " required><br><br>
+
+    
+    <label for="date"> Description:</label>
+    <input type="text" name="date" id="date" placeholder="Enter Description " required><br><br>
+
+    
+    <label for="clas"> Status:</label>
+    <input type="text" name="clas" id="clas" placeholder="Status " required><br><br>
+<!-- 
+    
+    <label for="dept"> Dept:</label>
+    <input type="text" name="dept" id="dept" placeholder="Enter your roll no " required><br><br>
+    
+    <label for="roll"> Roll No:</label>
+    <input type="text" name="roll" id="roll" placeholder="Enter your roll no " required><br><br>
+
+    <label for="tel">📱 Mobile No:</label>
+    <input type="tel" name="tel" id="tel" placeholder=" Mobile No " required><br><br> -->
+
+    <button type="submit" class="submit-btn">🚀 Submit</button>
+</form>
+
+<script>
+    // Optional: Confirm submission with emoji alert
+    const form = document.getElementById("createForm");
+    form.addEventListener("submit", function () {
+        alert("✅ Your entry has been submitted successfully!");
+    });
+</script>
+{% endblock %}

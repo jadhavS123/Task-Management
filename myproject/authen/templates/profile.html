@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="profile-container">
+  <h2 class="main-heading">👤✨ Profile Page ✨👤</h2>
+
+  <h2 class="welcome">🎉 Welcome  💐, <strong>{{ user.first_name }} {{ user.last_name }}</strong> 😍</h2>
+
+  <p class="info">🧑‍💻 Username : <strong>{{ user.username }}</strong> 😎</p>
+  <p class="info">📧 Email 📩: <strong>{{ user.email }}</strong> 💌</p>
+
+  <div class="button-group">
+    <a href="{% url 'update_profile' %}" class="action-button">✏️ Update Profile </a> &nbsp;&nbsp;&nbsp;
+    <a href="{% url 'update_password' %}" class="action-button">🔒 Update Password </a>
+  </div>
+
+  <br><br>
+  <!-- <p id="message" class="message">🚀 Keep shining Boy 🔥</p> -->
+  <p class="thank-you">🎈 Thanks for being with us! </p>
+</div>
+
+<!-- JavaScript for fading message after 5 seconds -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const message = document.getElementById('message');
+    if (message) {
+      setTimeout(() => {
+        message.style.transition = 'opacity 1s ease';
+        message.style.opacity = 0;
+      }, 5000);
+    }
+  });
+</script>
+{% endblock %}
